@@ -1,0 +1,54 @@
+{
+    "nodes": [
+      {
+        "parameters": {
+          "path": "/Users/corphd/Downloads/test.pdf"
+        },
+        "name": "Read PDF File",
+        "type": "n8n-nodes-base.readBinaryFiles",
+        "typeVersion": 1,
+        "position": [450, 300]
+      },
+      {
+        "parameters": {
+          "functionCode": "const { execSync } = require('child_process');\n\n// הרצת סקריפט Playwright שהכנת\nexecSync('node /path/to/your/playwright-script.js');\n\nreturn items;"
+        },
+        "name": "Run Playwright Script",
+        "type": "n8n-nodes-base.function",
+        "typeVersion": 1,
+        "position": [650, 300]
+      },
+      {
+        "parameters": {
+        },
+        "name": "Upload to Autodesk",
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 1,
+        "position": [850, 300]
+      }
+    ],
+    "connections": {
+      "Read PDF File": {
+        "main": [
+          [
+            {
+              "node": "Run Playwright Script",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Run Playwright Script": {
+        "main": [
+          [
+            {
+              "node": "Upload to Autodesk",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    }
+  }
