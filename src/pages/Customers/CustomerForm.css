@@ -1,37 +1,71 @@
-/* Customer Form Styles */
+/* Professional Customer Form Styles */
 .customer-form {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xl);
+  gap: var(--spacing-8);
 }
 
 .customer-form__section {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-4);
 }
 
 .customer-form__section h3 {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
   color: var(--color-gray-900);
-  margin: 0 0 var(--spacing-md) 0;
-  padding-bottom: var(--spacing-sm);
-  border-bottom: 2px solid var(--color-gray-200);
+  margin: 0;
+  padding-bottom: var(--spacing-3);
+  border-bottom: 1px solid var(--color-gray-100);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.customer-form__section h3::before {
+  content: '';
+  width: 4px;
+  height: 16px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
 }
 
 .customer-form__row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-md);
+  gap: var(--spacing-4);
 }
 
 .customer-form__actions {
   display: flex;
-  gap: var(--spacing-md);
+  gap: var(--spacing-3);
   justify-content: flex-end;
-  padding-top: var(--spacing-lg);
-  border-top: 1px solid var(--color-gray-200);
+  padding-top: var(--spacing-6);
+  border-top: 1px solid var(--color-gray-100);
+  margin-top: var(--spacing-2);
+}
+
+/* Input styling enhancements */
+.customer-form .input-wrapper {
+  margin-bottom: 0;
+}
+
+.customer-form .input-field {
+  padding: var(--spacing-3) var(--spacing-4);
+  font-size: var(--font-size-sm);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-gray-200);
+  transition: all var(--transition-fast);
+}
+
+.customer-form .input-field:hover {
+  border-color: var(--color-gray-300);
+}
+
+.customer-form .input-field:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-50);
 }
 
 /* Responsive Design */
@@ -48,5 +82,3 @@
     width: 100%;
   }
 }
-
-
